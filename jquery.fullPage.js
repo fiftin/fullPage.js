@@ -103,6 +103,8 @@
         var FP = $.fn.fullpage;
         // Create some defaults, extending them with any options that were provided
         options = $.extend({
+            offsetY: 0,
+            
             //navigation
             menu: false,
             anchors:[],
@@ -1288,7 +1290,7 @@
             //top of the desination will be at the top of the viewport
             var position = dest.top;
             var isScrollingDown =  dest.top > previousDestTop;
-            var sectionBottom = position - windowsHeight + element.outerHeight();
+            var sectionBottom = position - windowsHeight + element.outerHeight() + originals.offsetY;
 
             //is the destination element bigger than the viewport?
             if(element.outerHeight() > windowsHeight){
